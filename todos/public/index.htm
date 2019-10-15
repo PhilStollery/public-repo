@@ -1,0 +1,49 @@
+<!doctype html>
+<html ng-app="todos">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Todos</title>
+<link rel="stylesheet" href="//ajax.aspnetcdn.com/ajax/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.4.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+<script src="app.js"></script>
+<!-- Format display for mobile -->
+<style> 
+    html       { overflow-y:scroll }
+    body       { padding-top:50px }
+    #todo-list { margin-bottom:30px }
+</style>
+</head>
+
+<body ng-controller="mainController">
+    <div class="container">
+        <!-- Heading -->
+        <div class="jumbotron text-center">
+            <h1>Todos</h1>
+            <h3>What am I doing today? <span class="label label-success">{{ todos.length }}</span></h3>
+        </div>
+        <!-- Todos -->
+        <div id="todo-list" class="row">
+            <div class="col-sm-4 col-sm-offset-4 list-group">
+                <div class="checkbox list-group-item" ng-repeat="todo in todos">
+                    <label>
+                        <input type="checkbox" ng-click="deleteTodo(todo._id, todo.name)"> {{ todo.name }}
+                    </label>
+                </div>
+            </div>
+        </div>
+        <!-- Add button -->
+        <div id="todo-form" class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-lg text-center" placeholder="Enter your tasks, then Add them" ng-model="formData.text">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-lg" ng-click="createTodo()">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
