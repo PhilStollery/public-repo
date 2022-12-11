@@ -5,7 +5,7 @@
     "main": "server.js",
     "author": "Microsoft",
     "dependencies": {
-        "express": "^4.17.1",
+        "express": "^4.17.3",
         "method-override": "^3.0.0",
         "mongoose": "^5.6.12",
         "morgan": "^1.9.1"
